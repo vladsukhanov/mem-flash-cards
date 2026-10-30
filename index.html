@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Флеш-карточки</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <button data-view="study" class="active">Повторение</button>
+    <button data-view="add">Добавить</button>
+    <button data-view="list">Все слова</button>
+  </nav>
+
+  <main>
+    <!-- Повторение -->
+    <section id="study">
+      <p id="counter"></p>
+      <div id="card" hidden>
+        <div id="card-front"></div>
+        <div id="card-back" hidden>
+          <div id="card-answer"></div>
+          <div id="card-example"></div>
+        </div>
+      </div>
+      <button id="flip" hidden>Показать ответ</button>
+      <div id="grades" hidden>
+        <button data-grade="0">Не помню</button>
+        <button data-grade="1">Трудно</button>
+        <button data-grade="2">Хорошо</button>
+        <button data-grade="3">Легко</button>
+      </div>
+      <p id="empty" hidden>На сегодня всё. Добавьте новые слова или вернитесь позже.</p>
+    </section>
+
+    <!-- Добавление -->
+    <section id="add" hidden>
+      <form id="add-form">
+        <label>Слово <input id="f-front" required autocomplete="off"></label>
+        <label>Перевод <input id="f-back" required autocomplete="off"></label>
+        <label>Пример (необязательно) <input id="f-example" autocomplete="off"></label>
+        <button type="submit">Сохранить слово</button>
+      </form>
+      <p id="add-msg"></p>
+    </section>
+
+    <!-- Список -->
+    <section id="list" hidden>
+      <input id="search" placeholder="Поиск" autocomplete="off">
+      <ul id="cards-list"></ul>
+      <div class="row">
+        <button id="export">Экспорт JSON</button>
+        <label class="file-btn">Импорт JSON <input type="file" id="import" accept=".json" hidden></label>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
